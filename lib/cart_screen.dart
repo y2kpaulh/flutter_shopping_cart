@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_list_example/presentation/cart_provider.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'cart_item_tile.dart';
+import 'cart_item_widget.dart';
 
 class CartScreen extends HookConsumerWidget {
   const CartScreen({super.key});

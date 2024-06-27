@@ -32,11 +32,11 @@ class CartNotifier extends StateNotifier<List<CartItem>> {
   void addMockData() {
     state = [
       ...state,
-      const CartItem(id: 1, name: 'Product 1', price: 9.99),
-      const CartItem(id: 2, name: 'Product 2', price: 14.99),
-      const CartItem(id: 3, name: 'Product 3', price: 19.99),
-      const CartItem(id: 4, name: 'Product 4', price: 24.99),
-      const CartItem(id: 5, name: 'Product 5', price: 29.99),
+      const CartItem(id: 1, name: 'Product 1', price: 9.99, quantity: 5),
+      const CartItem(id: 2, name: 'Product 2', price: 14.99, quantity: 6),
+      const CartItem(id: 3, name: 'Product 3', price: 19.99, quantity: 7),
+      const CartItem(id: 4, name: 'Product 4', price: 24.99, quantity: 8),
+      const CartItem(id: 5, name: 'Product 5', price: 29.99, quantity: 9),
     ];
   }
 

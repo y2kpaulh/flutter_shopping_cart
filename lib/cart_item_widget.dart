@@ -1,5 +1,6 @@
 // 장바구니 아이템 위젯
 import 'package:flutter/material.dart';
+import 'package:flutter_list_example/order_number_picker.dart';
 import 'package:flutter_list_example/presentation/cart_item.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:numberpicker/numberpicker.dart';
@@ -23,7 +24,7 @@ class CartItemWidget extends ConsumerWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Container(
-          height: 140,
+          height: 100,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.black, width: 1.0),
             borderRadius: BorderRadius.circular(12.0),
@@ -41,22 +42,22 @@ class CartItemWidget extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(item.name, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    const SizedBox(height: 10,),
+                    Row(
                       children: [
-                        NumberPicker(
-                          axis: Axis.horizontal,
-                          value: item.quantity,
-                          itemWidth: 80,
-                          itemHeight: 50,
-                          minValue: 1,
-                          maxValue: 99,
-                          onChanged: (value) => onQuantityChanged(value),
+                        SizedBox(
+                          height: 40,
+                          child: OrderNumberPicker(
+                            maxValue: item.quantity,
+                            onChanged: (value) {
+                              onQuantityChanged(value);
+                            },
+                          ),
                         ),
+                        const SizedBox(width: 10,),
                         Text('${(item.price * item.quantity).toStringAsFixed(2)}원',
                           textAlign: TextAlign.start,
-                          style: const TextStyle(fontSize: 20),),
+                          style: const TextStyle(color: Colors.red, fontSize: 18, fontWeight: FontWeight.bold),),
                       ],
                     )
                   ],
